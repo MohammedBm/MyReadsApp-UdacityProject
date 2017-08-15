@@ -44,7 +44,7 @@ class SearchBooks extends Component {
 
 
   redner() {
-    const {book} = this.state
+    const {books} = this.state
     const {updateShelfBooks} = this.props
     return (
       <div className="search-books">
@@ -65,7 +65,7 @@ class SearchBooks extends Component {
                  shelf={book.shelf}
                  authors={book.authors}
                  title={book.title}
-                 imageLinks={book.imageLinks} updateBookShelf={updateBookShelf}/>
+                 imageLinks={book.imageLinks} updateShelfBooks={updateShelfBooks}/>
               </li>
             ))
             }

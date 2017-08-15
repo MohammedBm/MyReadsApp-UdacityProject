@@ -14,8 +14,8 @@ class BookList extends Component {
 
   //NOTE: this method will change the book from a shelf to another.
   changeBookShelf = (value)=> {
-    const {updateBookShelf} = this.props;
-    updateBookShelf(this.props, value);
+    const {updateShelfBooks} = this.props;
+    updateShelfBooks(this.props, value);
 
     this.setState({shelf: value});
   };

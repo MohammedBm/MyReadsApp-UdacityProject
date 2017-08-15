@@ -13,7 +13,7 @@ class Library extends Component{
 
 
   render(){
-    const {updateBookShelf} = this.props
+    const {updateShelfBooks} = this.props
     return(
       <div className="list-books">
         <div className='list-books-title'>
