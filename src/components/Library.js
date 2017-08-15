@@ -5,6 +5,13 @@ import BookShelf from './BookShelf'
 //NOTE: Declaring the Library Comonent
 class Library extends Component{
 
+  // NOTE: this will be used to filter the result according to the status
+  _filter = (shelf) =>{
+    const {books} = this.props;
+    return books.filter((book) => book.shelf === shelf)
+  }
+
+
   render(){
     return(
       <div className="list-books">
@@ -13,9 +20,19 @@ class Library extends Component{
         </div>
         <div className='list-books-content'>
           <div>
-            <BookShelf name="Currently Reading"/>
-            <BookShelf name="Want to Read"/>
-            <BookShelf name="Read"/>
+            <BookShelf
+              name="Currently Reading"
+              books={this._filter('currentlyReading')}
+            />
+
+            <BookShelf
+              name="Want to Read"
+              books={this._filter('wantToRead')}
+            />
+            <BookShelf
+              name="Read"
+              books={this._filterBooks('read')}
+            />
           </div>
         </div>
         <div className='open-search'>

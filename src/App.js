@@ -12,6 +12,31 @@ class BooksApp extends React.Component {
       this.setState({books:books})
     })
   }
+
+  updateShelfBooks = (book, updateShelf) =>{
+    const {books} = this.state;
+
+    const bookIndex = books.findIndex((key) =>{
+      return key.id === book.id;
+    })
+
+    let stateBooks = object.assign([], books)
+
+    if (bookIndex === -1){
+      const newBook = Object.assign({},book);
+      newBook.shelf = updateShelf;
+      stateBooks.push(newBook);
+    }else{
+      stateBooks[bookIndex] = Object.assign({},stateBooks[bookIndex]);
+      stateBooks[bookIndex].shelf = updateShelf;
+    }
+
+    BooksAPI.update(book,updateShelf).then(
+      this.setState({books:stateBooks})
+    )
+  }
+
+
   // NOTE: This will be send to the index.js and will be render on the index.html
   render() {
     return (
