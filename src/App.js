@@ -20,7 +20,7 @@ class BooksApp extends React.Component {
       return key.id === book.id;
     })
 
-    let stateBooks = object.assign([], books)
+    let stateBooks = Object.assign([], books)
 
     if (bookIndex === -1){
       const newBook = Object.assign({},book);

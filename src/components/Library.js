@@ -13,6 +13,7 @@ class Library extends Component{
 
 
   render(){
+    const {updateBookShelf} = this.props
     return(
       <div className="list-books">
         <div className='list-books-title'>
@@ -44,3 +45,5 @@ class Library extends Component{
     )
   }
 }
+
+export default Library;
