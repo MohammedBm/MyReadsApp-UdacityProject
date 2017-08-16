@@ -1,6 +1,4 @@
 import React, {Component} from 'react'
-import Library from './Library'
-import {Link} from 'react-router-dom'
 
 // NOTE: creating the BookList Component
 class BookList extends Component {

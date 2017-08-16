@@ -6,9 +6,9 @@ import BookShelf from './BookShelf'
 class Library extends Component{
 
   // NOTE: this will be used to filter the result according to the status
-  _filter = (shelf) =>{
+  _filterBook = (shelf) => {
     const {books} = this.props;
-    return books.filter((book) => book.shelf === shelf)
+    return books.filter((book) => book.shelf === shelf);
   }
 
 
@@ -23,16 +23,19 @@ class Library extends Component{
           <div>
             <BookShelf
               name="Currently Reading"
-              books={this._filter('currentlyReading')}
+              books={this._filterBook('currentlyReading')}
+              updateShelfBooks={updateShelfBooks}
             />
 
             <BookShelf
               name="Want to Read"
-              books={this._filter('wantToRead')}
+              books={this._filterBook('wantToRead')}
+              updateShelfBooks={updateShelfBooks}
             />
             <BookShelf
               name="Read"
-              books={this._filterBooks('read')}
+              books={this._filterBook('read')}
+              updateShelfBooks={updateShelfBooks}
             />
           </div>
         </div>

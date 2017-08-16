@@ -12,6 +12,7 @@ class BooksApp extends React.Component {
     this.state = BooksAPI.getAll().then((books) => {
       this.setState({books:books})
     })
+
   }
 
   updateShelfBooks = (book, updateShelf) =>{
@@ -41,12 +42,16 @@ class BooksApp extends React.Component {
   // NOTE: This will be send to the index.js and will be render on the index.html
 // FIXME: need fix books is undifend
   render() {
+    const { books } = this.state;
+    if (!books) {
+      return null;
+    }
+
     return (
+      <Router>
       <div className="app">
-        <Router>
           {/*NOTE: render the SearchBooks component */}
           <Route path="/search" render={ () => (
-
             <SearchBooks
               libraryBooks={books}
               updateShelfBooks={this.updateShelfBooks}
@@ -61,8 +66,8 @@ class BooksApp extends React.Component {
             />
           ) } />
 
-        </Router>
       </div>
+    </Router>
     )
   }
 }
