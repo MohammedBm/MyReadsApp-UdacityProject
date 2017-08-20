@@ -12,7 +12,7 @@ class SearchBooks extends Component {
     };
   }
   // NOTE: this helper will reutrn the matching result of the search, also we can add the books from the result to our library(shelf) via the drop-menu
-  udpateQuery = (query) =>{
+  upateQuery = (query) =>{
     const {libraryBooks} = this.props;
     this.setState({query: query});
     const trimmedQuery = query.trim();
