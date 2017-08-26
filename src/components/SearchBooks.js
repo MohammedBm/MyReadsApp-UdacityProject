@@ -43,7 +43,7 @@ class SearchBooks extends Component {
   }
 
 
-  redner() {
+  render() {
     const {books} = this.state
     const {updateShelfBooks} = this.props
     return (
@@ -53,7 +53,7 @@ class SearchBooks extends Component {
             Close
           </Link>
           <div className="search-books-input-wrapper">
-            <input type="text" placeholder="Search by title or author" onChange={(event) => this.updateQuery(event.target.value)}/>
+            <input type="text" placeholder="Search by title or author" onChange={(event) => this.upateQuery(event.target.value)}/>
           </div>
         </div>
         <div className="search-books-results">
