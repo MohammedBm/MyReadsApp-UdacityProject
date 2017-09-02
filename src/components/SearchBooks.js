@@ -8,13 +8,18 @@ class SearchBooks extends Component {
     super(props);
     this.state = {
       query: '',
-      books: []
+      books: [],
+      currentQuerry: false
+
     };
   }
   // NOTE: this helper will reutrn the matching result of the search, also we can add the books from the result to our library(shelf) via the drop-menu
   upateQuery = (query) =>{
     const {libraryBooks} = this.props;
-    this.setState({query: query});
+    this.setState({
+      query: query,
+      currentQuerry: true
+    });
     const trimmedQuery = query.trim();
     if (trimmedQuery === '') {
       return;
@@ -25,7 +30,7 @@ class SearchBooks extends Component {
           const libBook = libraryBooks.find((libBook) => libBook.id === book.id);
           const shelf = libBook
             ? libBook.shelf
-            : 'No Book Found';
+            : 'none';
 
           return {
             id: book.id,
@@ -37,7 +42,15 @@ class SearchBooks extends Component {
             }
           };
         });
-        this.setState({books});
+        this.setState({
+          books:books,
+          currentQuerry: false
+        });
+      }else{
+        this.setState({
+          books: [],
+          currentQuerry: false
+        });
       }
     });
   }
@@ -57,19 +70,27 @@ class SearchBooks extends Component {
           </div>
         </div>
         <div className="search-books-results">
-          <ol className="books-grid">
-            {books.map((book) => (
-              <li key={book.id}>
-                <BookList
-                id={book.id}
-                 shelf={book.shelf}
-                 authors={book.authors}
-                 title={book.title}
-                 imageLinks={book.imageLinks} updateShelfBooks={updateShelfBooks}/>
-              </li>
-            ))
-            }
-          </ol>
+          {
+            books.length > 0 ? (
+            <ol className="books-grid">
+              {books.map((book) => (
+                <li key={book.id}>
+                  <BookList
+                    id={book.id}
+                    shelf={book.shelf}
+                    authors={book.authors}
+                    title={book.title}
+                    imageLinks={book.imageLinks} updateShelfBooks={updateShelfBooks}/>
+                  </li>
+                ))
+              }
+            </ol>
+          ):(
+            this.state.query.length > 0 && !this.state.currentQuerry && (
+              <p className='errorMessage'>No search results.</p>
+                  )
+              )
+          }
         </div>
       </div>
     )
