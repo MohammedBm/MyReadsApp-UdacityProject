@@ -18,13 +18,14 @@ class BookList extends Component {
     this.setState({shelf: value});
   };
 
-  // NOTE: this will update the state after the comonpenet are mounted
+  // NOTE: this will update the state after the comonpenet is mounted
   componentDidMount() {
     const {shelf} = this.props;
     this.setState({shelf});
   };
 
   render() {
+    //NOTE: title, authors and imageLinks were imprted here so we can render them
     const {title, authors, imageLinks} = this.props;
     const {thumbnail} = imageLinks;
     const {shelf} = this.state;

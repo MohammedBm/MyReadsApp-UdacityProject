@@ -17,21 +17,23 @@ class Library extends Component{
     return(
       <div className="list-books">
         <div className='list-books-title'>
-          <h1>MyReads</h1>
+          <h1>MBamhrez Reads</h1>
         </div>
         <div className='list-books-content'>
           <div>
+          {/*NOTE: This will fillter the books with the self name of currentlyReading via the filter method  */}
             <BookShelf
               name="Currently Reading"
               books={this._filterBook('currentlyReading')}
               updateShelfBooks={updateShelfBooks}
             />
-
+            {/* NOTE: this will fillter the book in the wantToRead shelf */}
             <BookShelf
               name="Want to Read"
               books={this._filterBook('wantToRead')}
               updateShelfBooks={updateShelfBooks}
             />
+            {/*NOTE: this will fillter the books in the read shelf  */}
             <BookShelf
               name="Read"
               books={this._filterBook('read')}
