@@ -2,6 +2,7 @@
 
 In this application you can add books to your library from the Udacity book api. You can add books by searching for the book in the search menu. You can add the book to three shelfs Currently Reading, Want to Read, Read.
 
+## Installation instructions
 To use this application you can clone the repo via this command in your terminal
 
 ```shell
@@ -20,7 +21,7 @@ This command will install the packages needed for the application to start worki
 
 After installing the packages you can type this command to run the application in your machine
 
-```shell
+```shellÂ
   npm start
 ```
 
