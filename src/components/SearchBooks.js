@@ -25,7 +25,7 @@ class SearchBooks extends Component {
           const libBook = libraryBooks.find((libBook) => libBook.id === book.id);
           const shelf = libBook
             ? libBook.shelf
-            : 'none';
+            : 'No Book Found';
 
           return {
             id: book.id,

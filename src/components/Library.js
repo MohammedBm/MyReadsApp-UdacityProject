@@ -23,7 +23,7 @@ class Library extends Component{
           <div>
           {/*NOTE: This will fillter the books with the self name of currentlyReading via the filter method  */}
             <BookShelf
-              name="Currently Reading"
+              name="Currently Reading"  
               books={this._filterBook('currentlyReading')}
               updateShelfBooks={updateShelfBooks}
             />
