@@ -19,7 +19,7 @@ function BookShelf(props){
                   authors={book.authors}
                   title={book.titke}
                   imageLinks={book.imageLinks}
-                  self={book.shelf}
+                  shelf={book.shelf}
                   updateShelfBooks={updateShelfBooks}
                 />
               </li>
